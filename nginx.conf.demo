@@ -1,0 +1,29 @@
+upstream www.js101.local {
+    server 127.0.0.1:12301;
+}
+
+server {
+    listen 80;
+    server_name www.js101.local;
+
+    access_log /home/ymserver/log/nginx/www.js101.local-access.log;
+    error_log /home/ymserver/log/nginx/www.js101.local-error.log;
+
+    etag                            on;
+    gzip                            on;
+    gzip_comp_level                 2;
+    gzip_types                      *;
+    charset                         utf-8;
+    client_max_body_size            256M;
+
+    location /static {
+        alias /home/lupt/flighting/GIT/allblue-admin/static;
+    }
+
+    location / {
+        uwsgi_pass  www.js101.local;
+        include     uwsgi_params;
+        add_header  Cache-Control no-store;
+        add_header  X-Frame-Options SAMEORIGIN;
+    }
+}

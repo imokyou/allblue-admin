@@ -1,0 +1,7 @@
+.idea
+*.[a|o]
+*.bak
+*.swp
+*.pyc
+
+config/settings.py
