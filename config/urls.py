@@ -7,8 +7,9 @@ admin.autodiscover()
 urlpatterns = [
 
     # 改成下面这种分APP的形式了.
-    url(r'^/', include('app.user.urls')),
+    url(r'^$', include('app.snapshot.urls')),
     url(r'^user/', include('app.user.urls')),
     url(r'^api/user/', include('app.user.urls')),
+    url(r'^group/', include('app.group.urls')),
+    url(r'^api/group/', include('app.group.urls')),
 ]
-
