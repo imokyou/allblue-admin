@@ -12,4 +12,6 @@ urlpatterns = [
     url(r'^api/user/', include('app.user.urls')),
     url(r'^group/', include('app.group.urls')),
     url(r'^api/group/', include('app.group.urls')),
+    url(r'^application/', include('app.application.urls')),
+    url(r'^api/application/', include('app.application.urls')),
 ]
